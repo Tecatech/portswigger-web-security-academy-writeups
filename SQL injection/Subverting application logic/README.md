@@ -8,12 +8,12 @@ To solve the lab, perform an SQL injection attack that logs in to the applicatio
 
 Solution:
 
-```SQL
+```sql
 administrator'--
 ```
 
 Modified SQL query:
 
-```SQL
+```sql
 SELECT * FROM users WHERE username = 'administrator'--' AND password = 'alpha'
 ```

